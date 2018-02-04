@@ -37,6 +37,15 @@ func _process(delta):
 	&& !Input.is_action_pressed("direction_left") && !Input.is_action_pressed("direction_right")):
 		player_move = false;
 		
+		
+	if !Input.is_action_pressed("direction_up") and !Input.is_action_pressed("direction_down"):
+		player_direction_y = 0
+		pass
+		
+	if !Input.is_action_pressed("direction_right") and !Input.is_action_pressed("direction_left"):
+		player_direction_x = 0
+		pass
+		
 	if player_move:
 		var velocity_x = player_direction_x * player_speed * delta
 		var velocity_y = player_direction_y * player_speed * delta
