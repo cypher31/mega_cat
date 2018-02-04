@@ -57,8 +57,8 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("shoot"):
-		var projectile_id = get_node("/root/global").scene_dictionary["bullet"].get_instance_id();
-		var instance = instance_from_id(projectile_id)
-		add_child(instance);
+		print(true)
+		var projectile = get_node("/root/global").scene_loader["bullet"].instance();
+		add_child(projectile);
 #		instance.set_global_position(global_position);
 	pass
