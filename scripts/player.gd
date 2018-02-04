@@ -1,3 +1,5 @@
+extends KinematicBody2D
+
 var player_speed = 10000
 var player_aim
 var player_direction_y = 0
@@ -17,8 +19,8 @@ func _process(delta):
 	
 	#upwards movement
 	if Input.is_action_pressed("direction_up"):
-			player_direction_y = -1
-			player_move = true
+		player_direction_y = -1
+		player_move = true
 	elif Input.is_action_pressed("direction_down"):
 		player_direction_y = 1
 		player_move = true 
@@ -49,5 +51,5 @@ func _input(event):
 		var projectile_id = get_node("/root/global").scene_dictionary["bullet"].get_instance_id();
 		var instance = instance_from_id(projectile_id)
 		add_child(instance);
-		instance.set_global_position(global_position);
+#		instance.set_global_position(global_position);
 	pass
