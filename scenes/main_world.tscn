@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/main_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -12,8 +12,9 @@
 [ext_resource path="res://scenes/spawner.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/SewerLevelAudio.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/powerUp Spawner.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/enemyB_.tscn" type="PackedScene" id=13]
 
-[node name="main_world" type="Node2D" index="0"]
+[node name="main_world" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -63,5 +64,10 @@ position = Vector2( -109.042, -179.547 )
 [node name="powerUp Spawner" parent="." index="11" instance=ExtResource( 12 )]
 
 position = Vector2( -25.0812, 241.611 )
+
+[node name="enemy_2" parent="." index="12" instance=ExtResource( 13 )]
+
+position = Vector2( -97.1824, -221.072 )
+_sections_unfolded = [ "Collision", "collision" ]
 
 
