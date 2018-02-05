@@ -1,14 +1,20 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/main_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/box_test.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/enemy_.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/power_up_health.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/power_up_rapid_fire.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/power_up_repel_enemies.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/power_up_spawn_swarm.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/power_up_speed_boost.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/tiles.res" type="TileSet" id=3]
+[ext_resource path="res://scenes/spawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/enemy_.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 2343.51, 100.154 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 113.786, 1315.91 )
 
 [node name="main_world" type="Node2D"]
 
@@ -18,36 +24,175 @@ script = ExtResource( 1 )
 
 position = Vector2( -0.46376, -0.629963 )
 
-[node name="StaticBody2D" parent="." index="1" instance=ExtResource( 3 )]
+[node name="TileMap" type="TileMap" parent="." index="1"]
 
-position = Vector2( 213.503, 183.427 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 256, 256 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -327687, 0, 0, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -393215, 0, 0, -393214, 0, 0, -393213, 0, 0, -393212, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -262154, 0, 0, -327672, 0, 0, -196618, 0, 0, -262136, 0, 0, -131082, 0, 0, -196600, 0, 0, -65546, 0, 0, -131064, 0, 0, -10, 0, 0, -65528, 0, 0, 65526, 0, 0, 8, 0, 0, 131062, 0, 0, 65544, 0, 0, 196598, 0, 0, 131080, 0, 0, 262134, 0, 0, 196616, 0, 0, 327670, 0, 0, 262152, 0, 0, 393206, 0, 0, 393207, 0, 0, 393208, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 393213, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0 )
+_sections_unfolded = [ "Cell" ]
 
-[node name="StaticBody2D2" parent="." index="2" instance=ExtResource( 3 )]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
 
-position = Vector2( -362.71, -190.694 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
-[node name="enemy_" parent="." index="3" instance=ExtResource( 4 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 
-position = Vector2( 458.959, -220.391 )
+position = Vector2( -0.304962, -1387.26 )
+shape = SubResource( 1 )
 
-[node name="power_up_health" parent="." index="4" instance=ExtResource( 5 )]
+[node name="StaticBody2D3" type="StaticBody2D" parent="." index="3"]
 
-position = Vector2( -240.207, -73.6663 )
+position = Vector2( -105.563, 2779.81 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
-[node name="power_up_rapid_fire" parent="." index="5" instance=ExtResource( 6 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" index="0"]
 
-position = Vector2( -475.352, -57.0855 )
+position = Vector2( -0.304962, -1387.26 )
+shape = SubResource( 1 )
 
-[node name="power_up_repel_enemies" parent="." index="6" instance=ExtResource( 7 )]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="4"]
 
-position = Vector2( -464.801, 129.824 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
-[node name="power_up_spawn_swarm" parent="." index="7" instance=ExtResource( 8 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
 
-position = Vector2( -258.295, 179.567 )
+position = Vector2( 2177.51, 0.841309 )
+shape = SubResource( 2 )
 
-[node name="power_up_speed_boost" parent="." index="8" instance=ExtResource( 9 )]
+[node name="StaticBody2D4" type="StaticBody2D" parent="." index="5"]
 
-position = Vector2( -81.9368, 101.185 )
+position = Vector2( -4599.85, -63.2041 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" index="0"]
+
+position = Vector2( 2177.51, 0.841309 )
+shape = SubResource( 2 )
+
+[node name="Node" type="Node" parent="." index="6"]
+
+editor/display_folded = true
+
+[node name="Node2D" parent="Node" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( -638.281, -354.083 )
+
+[node name="Node2D2" parent="Node" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 642.94, -358.742 )
+
+[node name="Node2D3" parent="Node" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( -642.94, 354.083 )
+
+[node name="Node2D4" parent="Node" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 647.599, 372.719 )
+
+[node name="Node2D5" parent="Node" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 1946.88, -1173.74 )
+
+[node name="Node2D6" parent="Node" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( -2204.49, -1186.42 )
+
+[node name="Node2D7" parent="Node" index="6" instance=ExtResource( 4 )]
+
+position = Vector2( -2236.18, 1190.32 )
+
+[node name="Node2D8" parent="Node" index="7" instance=ExtResource( 4 )]
+
+position = Vector2( 1916.05, 1167.19 )
+
+[node name="Node2D9" parent="Node" index="8" instance=ExtResource( 4 )]
+
+position = Vector2( 1396.37, 745.834 )
+
+[node name="Node2D10" parent="Node" index="9" instance=ExtResource( 4 )]
+
+position = Vector2( 1438.51, -707.861 )
+
+[node name="Node2D11" parent="Node" index="10" instance=ExtResource( 4 )]
+
+position = Vector2( -1546.13, -693.815 )
+
+[node name="Node2D12" parent="Node" index="11" instance=ExtResource( 4 )]
+
+position = Vector2( -1532.08, 794.993 )
+
+[node name="Node2D13" parent="Node" index="12" instance=ExtResource( 4 )]
+
+position = Vector2( -1468.88, 1.42993 )
+
+[node name="Node2D14" parent="Node" index="13" instance=ExtResource( 4 )]
+
+position = Vector2( 1269.97, 1.42993 )
+
+[node name="enemy_" parent="Node/Node2D14" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( -1808.67, 220.932 )
+
+[node name="Node2D15" parent="Node" index="14" instance=ExtResource( 4 )]
+
+position = Vector2( 1186.48, -601.939 )
+
+[node name="enemy_" parent="Node/Node2D15" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( -1808.67, 220.932 )
+
+[node name="Node2D16" parent="Node" index="15" instance=ExtResource( 4 )]
+
+position = Vector2( 2495.68, -571.581 )
+
+[node name="enemy_" parent="Node/Node2D16" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( -1808.67, 220.932 )
+
+[node name="Node2D17" parent="Node" index="16" instance=ExtResource( 4 )]
+
+position = Vector2( 2495.68, 153.221 )
+
+[node name="enemy_" parent="Node/Node2D17" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( -1808.67, 220.932 )
 
 

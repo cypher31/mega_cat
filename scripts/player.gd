@@ -5,7 +5,7 @@ var player_direction_y = 0
 var player_direction_x = 0
 var player_move = false
 
-var player_health = 50
+var player_health = 100
 var player_speed = 10000
 var player_shot_speed
 var sprite_array = []
@@ -39,13 +39,17 @@ func _ready():
 	
 	for i in range(1, 9):
 		sprite_array.append(load("res://Assets/player_sprite/player_sprite"  + "_" + str(i) + ".png"))
-		print(i)
+		pass
 
 	pass
 
 func _process(delta):
 	_rotate_sprite()
 	look_at(get_global_mouse_position())
+	
+	#update player UI
+	get_node("CanvasLayer/TextureProgress").set_value(player_health)
+	get_node("CanvasLayer/score").set_text(str(get_node("/root/global").player_score))
 	
 	#upwards movement
 	if Input.is_action_pressed("direction_up"):
@@ -134,8 +138,7 @@ func _rotate_sprite():
 	
 	var start = -90
 	var rot_mod = 45 / 2
-	print(sprite_rot)
-	print(start - rot_mod)
+	
 	if sprite_rot > (-112.5) and sprite_rot < (-67.5) and sprite_rot < 0:
 		get_node("Sprite").set_texture(sprite_array[0])
 		set_rotation(-(45 + 22.5))
@@ -196,6 +199,7 @@ func _on_collision_area_body_entered( body ):
 		
 		var normal = relative_position.normalized()
 		knock_back(normal)
+		player_health -= 10
 		pass
 	pass # replace with function body
 
