@@ -1,17 +1,37 @@
 extends KinematicBody2D
 
-var player_speed = 10000
 var player_aim
 var player_direction_y = 0
 var player_direction_x = 0
 var player_move = false
 
+var player_health = 50
+var player_speed = 10000
+var player_shot_speed
+
+#power_up_mods multipliers to timers
+var speed_boost = 1.5
+var rapid_fire = 2
+var health_pack = 25
+var enemy_repel = -1
+var spawn_swarm = 2.5
+
+#bools
+var can_shoot = true
+
+#signal
+signal repel
+signal spawn_swarm
 
 func _ready():
 	get_node("/root/global").player = self;
 	set_process(true)
 	
 	set_process_input(true);
+	
+	#connect signals
+	connect("repel", get_node("/root/global").main, "_power_up")
+	connect("spawn_swarm", get_node("/root/global").main, "_power_up")
 	pass
 
 func _process(delta):
@@ -57,12 +77,40 @@ func _process(delta):
 	pass
 
 func _input(event):
-	if event.is_action_pressed("shoot"):
+	if event.is_action_pressed("shoot") and can_shoot:
+		get_node("shot_timer").start()
+		can_shoot = false
+		
 		var projectile = get_node("/root/global").scene_loader["bullet"].instance();
 		add_child(projectile);
-#		instance.set_global_position(global_position);
+		
+		projectile.set_global_position(get_node("Sprite/Position2D").get_global_position())
+
 	pass
 
+
+func _power_up(type):
+	if type == "power_up_health":
+		player_health = clamp(player_health + health_pack, 0, 100)
+	elif type == "power_up_rapid_fire":
+		get_node("shot_timer").set_wait_time(get_node("shot_timer").get_wait_time() / rapid_fire)
+		get_node("power_up_timer").set_wait_time(10)
+		get_node("power_up_timer").start()
+	elif type == "power_up_speed_boost":
+		player_speed *= speed_boost
+		get_node("power_up_timer").set_wait_time(10)
+		get_node("power_up_timer").start()
+	elif type == "power_up_repel_enemies":
+		emit_signal("repel", "repel")
+		get_node("power_up_timer").set_wait_time(10)
+		get_node("power_up_timer").start()
+	elif type == "power_up_spawn_swarm":
+		emit_signal("spawn_swarm", "spawn_swarm")
+		get_node("power_up_timer").set_wait_time(10)
+		get_node("power_up_timer").start()
+		pass
+	pass
+	
 
 func knock_back(normal):
 	set_global_position(get_global_position() - normal * 100)
@@ -78,3 +126,16 @@ func _on_collision_area_body_entered( body ):
 		knock_back(normal)
 		pass
 	pass # replace with function body
+
+
+func _on_collision_area_area_entered( area ):
+	if area.is_in_group("power_up"):
+		_power_up(area.type)
+		area.queue_free()
+	pass # replace with function body
+	
+	
+func _on_shot_timer_timeout():
+	can_shoot = true
+	pass # replace with function body
+

@@ -13,7 +13,7 @@ extents = Vector2( 28.0621, 24.5284 )
 custom_solver_bias = 0.0
 extents = Vector2( 30.3268, 30.0285 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0" groups=[
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
 "player",
 ]]
 
@@ -29,6 +29,11 @@ _sections_unfolded = [ "Transform" ]
 rotation = -1.5708
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Position2D" type="Position2D" parent="Sprite" index="0"]
+
+position = Vector2( -0.000252977, 69.8835 )
+rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
@@ -73,8 +78,24 @@ audio_bus_name = "Master"
 
 shape = SubResource( 2 )
 
+[node name="shot_timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.25
+one_shot = true
+autostart = false
+
+[node name="power_up_timer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
 [connection signal="area_entered" from="collision_area" to="." method="_on_collision_area_area_entered"]
 
 [connection signal="body_entered" from="collision_area" to="." method="_on_collision_area_body_entered"]
+
+[connection signal="timeout" from="shot_timer" to="." method="_on_shot_timer_timeout"]
 
 

@@ -14,7 +14,10 @@ func _ready():
 	set_process(true);
 	set_as_toplevel(true);
 	
-	var direction = (get_global_mouse_position() - get_position()).normalized()
+	var mousePositionStart = get_global_mouse_position()
+	var playerCurrentRotation = player.get_node("Sprite/Position2D").get_rotation()
+	
+	var direction = (get_global_mouse_position() - get_global_position()).normalized()
 	linear_velocity = direction * shotspeed
 	
 	pass
@@ -22,9 +25,6 @@ func _ready():
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
-
-	var mousePositionStart = get_global_mouse_position()
-	var playerCurrentRotation = player.get_rotation()
 	
 	move_and_slide(linear_velocity);
 
