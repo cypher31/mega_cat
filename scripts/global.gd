@@ -8,10 +8,12 @@ var repel = 1
 
 var bullet = preload("res://scenes/projectile.tscn")
 var main_world = preload("res://scenes/main_world.tscn")
+var enemy = preload("res://scenes/enemy_.tscn")
 
 var scene_loader = {
 	"bullet": bullet,
-	"world": main_world
+	"world": main_world,
+	"enemy":enemy
 	}
 
 func _ready():

@@ -38,11 +38,13 @@ func _on_Timer_timeout():
 func _on_collisionArea_body_entered( body ):
 	if body.is_in_group("enemy"):
 		body.enemy_health = body.enemy_health - 20;
+		
 		if(body.enemy_health < 0):
 			body.queue_free();
-		queue_free();
-		print(body.enemy_health);
+			queue_free();
+			print(body.enemy_health);
 		pass
+		queue_free();
 	pass # replace with function body
 
 		
