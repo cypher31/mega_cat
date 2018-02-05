@@ -13,7 +13,9 @@ extents = Vector2( 28.705, 30.261 )
 custom_solver_bias = 0.0
 radius = 460.686
 
-[node name="enemy_" type="KinematicBody2D"]
+[node name="enemy_" type="KinematicBody2D" groups=[
+"enemy",
+]]
 
 input_pickable = false
 collision_layer = 1
