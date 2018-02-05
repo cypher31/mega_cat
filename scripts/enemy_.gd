@@ -8,6 +8,8 @@ var track_player = false
 
 var move_speed = 10000
 
+var enemy_health = 100
+
 signal hit_player
 
 func _ready():
@@ -35,7 +37,7 @@ func _process(delta):
 		velocity.x = -move_speed * normalized_movement.x
 		velocity.y = -move_speed * normalized_movement.y
 			
-		var motion = velocity * delta #calculation motion
+		var motion = velocity * delta * get_node("/root/global").repel #calculation motion
 		
 		move_and_slide(motion) #apply motion
 		pass
