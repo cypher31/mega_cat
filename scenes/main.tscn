@@ -9,6 +9,8 @@ script = ExtResource( 1 )
 
 [node name="start_screen" parent="." index="0" instance=ExtResource( 2 )]
 
+editor/display_folded = true
+
 [connection signal="button_up" from="start_screen/CenterContainer/start_button" to="." method="_on_start_button_button_up"]
 
 

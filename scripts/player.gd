@@ -47,6 +47,10 @@ func _process(delta):
 	_rotate_sprite()
 	look_at(get_global_mouse_position())
 	
+	#update ui
+	get_node("CanvasLayer/TextureProgress").set_value(player_health)
+	get_node("CanvasLayer/score").set_text(str(get_node("/root/global").player_score))
+	
 	#upwards movement
 	if Input.is_action_pressed("direction_up"):
 		player_direction_y = -1
@@ -140,52 +144,52 @@ func _rotate_sprite():
 		get_node("Sprite").set_texture(sprite_array[0])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(90))
-#		get_node("Sprite").set_flip_h(false)
+		get_node("Sprite").set_flip_h(false)
 	elif sprite_rot > (-157.5) and sprite_rot < (-112.5) and sprite_rot < 0:
 		get_node("Sprite").set_texture(sprite_array[1])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(90+45))
-#		get_node("Sprite").set_flip_h(false)
+		get_node("Sprite").set_flip_h(false)
 	elif sprite_rot > (-180) and sprite_rot < (-157.5) and sprite_rot < 0:
 		get_node("Sprite").set_texture(sprite_array[2])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(90+45+22.5))
-#		get_node("Sprite").set_flip_h(false)
+		get_node("Sprite").set_flip_h(true)
 	elif sprite_rot < (180) and sprite_rot > (157.5) and sprite_rot > 0:
 		get_node("Sprite").set_texture(sprite_array[2])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(90+45+22.5))
-#		get_node("Sprite").set_flip_h(false)
+		get_node("Sprite").set_flip_h(true)
 	elif sprite_rot < (157.5) and sprite_rot > (117.5) and sprite_rot > 0:
 		get_node("Sprite").set_texture(sprite_array[3])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(-90-45-22.5))
-#		get_node("Sprite").set_flip_h(false)
+		get_node("Sprite").set_flip_h(false)
 	elif sprite_rot < (117.5) and sprite_rot > (117.5 - 45) and sprite_rot > 0:
 		get_node("Sprite").set_texture(sprite_array[4])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(-90))
-#		get_node("Sprite").set_flip_h(false)
+		get_node("Sprite").set_flip_h(false)
 	elif sprite_rot < (72.5) and sprite_rot > (72.5 - 45) and sprite_rot > 0:
 		get_node("Sprite").set_texture(sprite_array[5])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5))
-#		get_node("Sprite").set_flip_h(false)
+		get_node("Sprite").set_flip_h(false)
 	elif sprite_rot < (72.5 - 45) and sprite_rot > (0) and sprite_rot > 0:
 		get_node("Sprite").set_texture(sprite_array[6])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5+22.5))
-#		get_node("Sprite").set_flip_h(false)
+		get_node("Sprite").set_flip_h(false)
 	elif sprite_rot < (0) and sprite_rot > (-22.5) and sprite_rot < 0:
 		get_node("Sprite").set_texture(sprite_array[6])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5+22.5))
-#		get_node("Sprite").set_flip_h(false)
+		get_node("Sprite").set_flip_h(false)
 	elif sprite_rot < (-22.5) and sprite_rot > (-22.5-45) and sprite_rot < 0:
 		get_node("Sprite").set_texture(sprite_array[7])
 		set_rotation(-(45 + 22.5))
 		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5+22.5+22.5))
-#		get_node("Sprite").set_flip_h(false
+		get_node("Sprite").set_flip_h(false)
 	pass
 
 
@@ -196,6 +200,11 @@ func _on_collision_area_body_entered( body ):
 		
 		var normal = relative_position.normalized()
 		knock_back(normal)
+		player_health -= 10
+		
+		if player_health <= 0:
+			get_tree().reload_current_scene()
+			pass
 		pass
 	pass # replace with function body
 
