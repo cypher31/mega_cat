@@ -8,6 +8,7 @@ var player_move = false
 var player_health = 50
 var player_speed = 10000
 var player_shot_speed
+var sprite_array = []
 
 #power_up_mods multipliers to timers
 var speed_boost = 1.5
@@ -32,9 +33,15 @@ func _ready():
 	#connect signals
 	connect("repel", get_node("/root/global").main, "_power_up")
 	connect("spawn_swarm", get_node("/root/global").main, "_power_up")
+	
+	for i in range(1, 9):
+		sprite_array.append(load("res://Assets/player_sprite/player_sprite"  + "_" + str(i) + ".png"))
+		print(i)
+
 	pass
 
 func _process(delta):
+	_rotate_sprite()
 	look_at(get_global_mouse_position())
 	
 	#upwards movement
@@ -84,7 +91,7 @@ func _input(event):
 		var projectile = get_node("/root/global").scene_loader["bullet"].instance();
 		add_child(projectile);
 		
-		projectile.set_global_position(get_node("Sprite/Position2D").get_global_position())
+		projectile.set_global_position(get_node("Position2D").get_global_position())
 
 	pass
 
@@ -116,6 +123,68 @@ func knock_back(normal):
 	set_global_position(get_global_position() - normal * 100)
 	
 	pass
+
+
+
+func _rotate_sprite():
+	var sprite_rot = rad2deg(get_global_rotation())
+	
+	var start = -90
+	var rot_mod = 45 / 2
+	print(sprite_rot)
+	print(start - rot_mod)
+	if sprite_rot > (-112.5) and sprite_rot < (-67.5) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[0])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(90))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot > (-157.5) and sprite_rot < (-112.5) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[1])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(90+45))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot > (-180) and sprite_rot < (-157.5) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[2])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(90+45+22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (180) and sprite_rot > (157.5) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[2])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(90+45+22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (157.5) and sprite_rot > (117.5) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[3])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90-45-22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (117.5) and sprite_rot > (117.5 - 45) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[4])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (72.5) and sprite_rot > (72.5 - 45) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[5])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (72.5 - 45) and sprite_rot > (0) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[6])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5+22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (0) and sprite_rot > (-22.5) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[6])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5+22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (-22.5) and sprite_rot > (-22.5-45) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[7])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5+22.5+22.5))
+#		get_node("Sprite").set_flip_h(false
+	pass
+
 
 func _on_collision_area_body_entered( body ):
 	if body.is_in_group("enemy"):

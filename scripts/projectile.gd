@@ -15,7 +15,7 @@ func _ready():
 	set_as_toplevel(true);
 	
 	var mousePositionStart = get_global_mouse_position()
-	var playerCurrentRotation = player.get_node("Sprite/Position2D").get_rotation()
+	var playerCurrentRotation = player.get_node("Position2D").get_rotation()
 	
 	var direction = (get_global_mouse_position() - get_global_position()).normalized()
 	linear_velocity = direction * shotspeed
