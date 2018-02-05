@@ -11,7 +11,7 @@ var main_world = preload("res://scenes/main_world.tscn")
 
 var scene_loader = {
 	"bullet": bullet,
-	"world": main
+	"world": main_world
 	}
 
 func _ready():

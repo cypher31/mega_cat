@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 28.0621, 24.5284 )
+extents = Vector2( 30.0383, 30.5998 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -26,6 +26,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 rotation = -1.5708
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
