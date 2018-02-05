@@ -5,7 +5,7 @@ var player_direction_y = 0
 var player_direction_x = 0
 var player_move = false
 
-var player_health = 50
+var player_health = 100
 var player_speed = 10000
 var player_shot_speed
 var sprite_array = []

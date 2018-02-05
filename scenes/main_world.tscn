@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/main_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/tiles.res" type="TileSet" id=3]
 [ext_resource path="res://scenes/spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/enemy_.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/SewerLevelAudio.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/powerUp Spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/enemyB_.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/SewerLevelAudio.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -17,7 +19,7 @@ extents = Vector2( 2343.51, 100.154 )
 custom_solver_bias = 0.0
 extents = Vector2( 113.786, 1315.91 )
 
-[node name="main_world" type="Node2D"]
+[node name="main_world" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -196,6 +198,42 @@ position = Vector2( 2495.68, 153.221 )
 
 position = Vector2( -1808.67, 220.932 )
 
-[node name="AudioStreamPlayer" parent="." index="7" instance=ExtResource( 6 )]
+[node name="powerUp Spawner" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 7.40247, 214.671 )
+
+[node name="powerUp Spawner6" parent="." index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 49.3334, -358.384 )
+
+[node name="powerUp Spawner7" parent="." index="9" instance=ExtResource( 6 )]
+
+position = Vector2( 650.343, -22.9368 )
+
+[node name="powerUp Spawner8" parent="." index="10" instance=ExtResource( 6 )]
+
+position = Vector2( -658.833, 9.67609 )
+
+[node name="enemy_" parent="." index="11" instance=ExtResource( 7 )]
+
+position = Vector2( 6.80194, -929.797 )
+
+[node name="AudioStreamPlayer" parent="." index="12" instance=ExtResource( 8 )]
+
+[node name="powerUp Spawner2" parent="." index="13" instance=ExtResource( 6 )]
+
+position = Vector2( 1604.15, 635.117 )
+
+[node name="powerUp Spawner3" parent="." index="14" instance=ExtResource( 6 )]
+
+position = Vector2( 1646.95, -308.957 )
+
+[node name="powerUp Spawner4" parent="." index="15" instance=ExtResource( 6 )]
+
+position = Vector2( -893.237, 698.056 )
+
+[node name="powerUp Spawner5" parent="." index="16" instance=ExtResource( 6 )]
+
+position = Vector2( -1633.39, 285.181 )
 
 

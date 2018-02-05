@@ -19,8 +19,8 @@ func _ready():
 
 func _on_Timer_timeout():
 	randomize()
-	var randomValue = rand_range(1,5);
-	var powerUps = ["rapidFire","healthPower","speedPower","repelEnemies","spawnSwarm"];
+	var randomValue = rand_range(1,3);
+	var powerUps = ["rapidFire","healthPower","speedPower"];
 	print(powerUps[randomValue]);
 	
 	if !alreadySpawned:
