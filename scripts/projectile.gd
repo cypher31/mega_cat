@@ -7,6 +7,8 @@ var player
 var shotspeed = 1000.0
 var linear_velocity
 
+signal enemy_dead
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -20,6 +22,7 @@ func _ready():
 	var direction = (get_global_mouse_position() - get_global_position()).normalized()
 	linear_velocity = direction * shotspeed
 	
+	connect("enemy_dead", get_node("/root/global").main, "_add_to_score")
 	pass
 
 func _process(delta):
@@ -42,9 +45,17 @@ func _on_collisionArea_body_entered( body ):
 		if(body.enemy_health < 0):
 			body.queue_free();
 			queue_free();
-			print(body.enemy_health);
+			emit_signal("enemy_dead")
 		pass
-		queue_free();
+		
+	linear_velocity = Vector2(0,0)
+	get_node("AnimationPlayer").play("hit")
 	pass # replace with function body
 
 		
+
+func _on_AnimationPlayer_animation_finished( anim_name ):
+	if anim_name == "hit":
+		queue_free()
+		pass
+	pass # replace with function body

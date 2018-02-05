@@ -14,16 +14,21 @@ var randY
 
 var move_random = false;
 var timer;
-
+var sprite_array = []
 signal hit_player
 
 func _ready():
 	set_process(true)
 	
 	player = get_node("/root/global").player
+	
+	for i in range(1, 9):
+		sprite_array.append(load("res://Assets/enemy_sprite/enemy_sprite"  + "_" + str(i) + ".png"))
+		pass
 	pass
 
 func _process(delta):
+	_rotate_sprite()
 	player_position = player.global_position
 	
 	look_at(player_position)
@@ -92,4 +97,62 @@ func _on_Timer2_timeout():
 	
 	timer.start();
 	move_random = false;
-	pass # replace with function body
+	pass # replace with function body\
+
+func _rotate_sprite():
+	var sprite_rot = rad2deg(get_global_rotation())
+
+	var start = -90
+	var rot_mod = 45 / 2
+
+	if sprite_rot > (-112.5) and sprite_rot < (-67.5) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[0])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(90))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot > (-157.5) and sprite_rot < (-112.5) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[1])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(90+45))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot > (-180) and sprite_rot < (-157.5) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[2])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(90+45+22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (180) and sprite_rot > (157.5) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[2])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(90+45+22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (157.5) and sprite_rot > (117.5) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[3])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90-45-22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (117.5) and sprite_rot > (117.5 - 45) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[4])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (72.5) and sprite_rot > (72.5 - 45) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[5])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5))
+		get_node("Sprite").set_flip_h(true)
+	elif sprite_rot < (72.5 - 45) and sprite_rot > (0) and sprite_rot > 0:
+		get_node("Sprite").set_texture(sprite_array[6])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5+22.5))
+		get_node("Sprite").set_flip_h(true)
+	elif sprite_rot < (0) and sprite_rot > (-22.5) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[6])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5+22.5))
+#		get_node("Sprite").set_flip_h(false)
+	elif sprite_rot < (-22.5) and sprite_rot > (-22.5-45) and sprite_rot < 0:
+		get_node("Sprite").set_texture(sprite_array[7])
+		set_rotation(-(45 + 22.5))
+		get_node("Sprite").set_rotation(deg2rad(-90+45+22.5+22.5+22.5))
+#		get_node("Sprite").set_flip_h(false
+	pass

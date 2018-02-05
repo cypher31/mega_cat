@@ -1,6 +1,7 @@
 extends Node
 
 var player
+var player_score = 0
 var main
 
 #power_up

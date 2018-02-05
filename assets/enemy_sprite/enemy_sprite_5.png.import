@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/garbage_SW.png-2fa867a9529cace3ae85d07a363bdae8.stex"
+path="res://.import/enemy_sprite_5.png-9971e234edbdd30158f2407b83e3748d.stex"
 
 [deps]
 
-source_file="res://assets/garbage_SW.png"
-source_md5="c85c4d38e28f0f81a97f93269227be9d"
+source_file="res://assets/enemy_sprite/enemy_sprite_5.png"
+source_md5="223a04fdf1b541fd6a8ae0ccf1dbfb7e"
 
-dest_files=[ "res://.import/garbage_SW.png-2fa867a9529cace3ae85d07a363bdae8.stex" ]
-dest_md5="7fe91f0a56c8b36ef6756f2471316724"
+dest_files=[ "res://.import/enemy_sprite_5.png-9971e234edbdd30158f2407b83e3748d.stex" ]
+dest_md5="15474e3d26abf3381d878dd9f1a53fcb"
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/garbage_N.png-93cc9968e6229ba0d9e93e539033aa26.stex"
+path="res://.import/UI_Start-Idle.png-e5408634a4a52864b35e5f0e38bafa3f.stex"
 
 [deps]
 
-source_file="res://assets/garbage_N.png"
-source_md5="81bb3cb6cc65b069db716e312e3adc7b"
+source_file="res://assets/UI_Start-Idle.png"
+source_md5="83ac58da2ed96024c1dca3d8609fd226"
 
-dest_files=[ "res://.import/garbage_N.png-93cc9968e6229ba0d9e93e539033aa26.stex" ]
-dest_md5="45fde2097c45929849861c2a99f9715d"
+dest_files=[ "res://.import/UI_Start-Idle.png-e5408634a4a52864b35e5f0e38bafa3f.stex" ]
+dest_md5="eff09e316d02f7e229fbdcc933e473af"
 
 [params]
 

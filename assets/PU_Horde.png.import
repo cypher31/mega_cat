@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/garbage_E.png-5e5506863b1f41465bf669d640715abd.stex"
+path="res://.import/PU_Horde.png-688948c190d4ec7b0e42f4e4136490f7.stex"
 
 [deps]
 
-source_file="res://assets/garbage_E.png"
-source_md5="adcf42eb03949b69c782414092c624e3"
+source_file="res://assets/PU_Horde.png"
+source_md5="4c1ab991ad32b21bbcc0221895899eff"
 
-dest_files=[ "res://.import/garbage_E.png-5e5506863b1f41465bf669d640715abd.stex" ]
-dest_md5="fa56f195d6cda63eafc1b056a1a651c0"
+dest_files=[ "res://.import/PU_Horde.png-688948c190d4ec7b0e42f4e4136490f7.stex" ]
+dest_md5="ba92a7e2898a9cf9ac75ceba34b21f42"
 
 [params]
 

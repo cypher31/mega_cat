@@ -1,5 +1,7 @@
 extends Node
 
+var player_score
+
 func _ready():
 	get_node("/root/global").main = self
 	pass
@@ -13,6 +15,10 @@ func _power_up(type):
 	
 	pass
 	
+
+func _add_to_score():
+	get_node("/root/global").player_score += 100
+	pass
 
 func _on_start_button_button_up():
 	var instance = get_node("/root/global").scene_loader["world"].instance()

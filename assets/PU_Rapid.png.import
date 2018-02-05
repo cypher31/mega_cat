@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/garbage_NW.png-2476bff021416e357c3f287786594eab.stex"
+path="res://.import/PU_Rapid.png-8e8f3b1cbd2a7670ebcdbd0a518f160d.stex"
 
 [deps]
 
-source_file="res://assets/garbage_NW.png"
-source_md5="ddd97a62c3f54ffb6006f5faebee0291"
+source_file="res://assets/PU_Rapid.png"
+source_md5="5f920ce111d14ac5b923cd78cad89586"
 
-dest_files=[ "res://.import/garbage_NW.png-2476bff021416e357c3f287786594eab.stex" ]
-dest_md5="81589fbd8029d795d24cd73b217591f1"
+dest_files=[ "res://.import/PU_Rapid.png-8e8f3b1cbd2a7670ebcdbd0a518f160d.stex" ]
+dest_md5="2518d44360d30439f74719831cb87b4f"
 
 [params]
 
