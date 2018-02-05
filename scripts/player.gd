@@ -17,6 +17,9 @@ var health_pack = 25
 var enemy_repel = -1
 var spawn_swarm = 2.5
 
+#player score
+var player_score = 0
+
 #bools
 var can_shoot = true
 
