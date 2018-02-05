@@ -53,12 +53,28 @@ func _process(delta):
 		move_and_slide(Vector2(velocity_x, velocity_y))
 		#print(global_position)
 		pass
+		
 	pass
 
 func _input(event):
 	if event.is_action_pressed("shoot"):
-		var projectile_id = get_node("/root/global").scene_dictionary["bullet"].get_instance_id();
-		var instance = instance_from_id(projectile_id)
-		add_child(instance);
+		var projectile = get_node("/root/global").scene_loader["bullet"].instance();
+		add_child(projectile);
 #		instance.set_global_position(global_position);
 	pass
+
+
+func knock_back(normal):
+	set_global_position(get_global_position() - normal * 100)
+	
+	pass
+
+func _on_collision_area_body_entered( body ):
+	if body.is_in_group("enemy"):
+		var enemy_position = body.get_global_position()
+		var relative_position = enemy_position - get_global_position()
+		
+		var normal = relative_position.normalized()
+		knock_back(normal)
+		pass
+	pass # replace with function body
