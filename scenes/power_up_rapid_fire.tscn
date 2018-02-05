@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/power_up.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/Boston/PU_Rapid.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,12 +24,12 @@ type = "power_up_rapid_fire"
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-modulate = Color( 0.107285, 0.178645, 0.347656, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
 
 

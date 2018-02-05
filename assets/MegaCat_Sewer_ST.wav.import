@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MegaCat_Sewer_ST.wav-67a3fad623632672d644a11eaa6541c1.sample"
+
+[deps]
+
+source_file="res://assets/MegaCat_Sewer_ST.wav"
+source_md5="bd65ebe9e5e7d6db72430a222601245d"
+
+dest_files=[ "res://.import/MegaCat_Sewer_ST.wav-67a3fad623632672d644a11eaa6541c1.sample" ]
+dest_md5="714b7cba3313dfe33ff5f959e9d53c8d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

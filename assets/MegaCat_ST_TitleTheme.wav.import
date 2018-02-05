@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MegaCat_ST_TitleTheme.wav-3855db6d7d68cb1c3c76bb517339f07d.sample"
+
+[deps]
+
+source_file="res://assets/MegaCat_ST_TitleTheme.wav"
+source_md5="f78c6adc16f28a0a3662adc4883adec1"
+
+dest_files=[ "res://.import/MegaCat_ST_TitleTheme.wav-3855db6d7d68cb1c3c76bb517339f07d.sample" ]
+dest_md5="9e5d7f42f1fef5e13dc04f2da7b1efb2"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

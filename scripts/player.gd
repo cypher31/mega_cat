@@ -39,7 +39,7 @@ func _ready():
 	
 	for i in range(1, 9):
 		sprite_array.append(load("res://Assets/player_sprite/player_sprite"  + "_" + str(i) + ".png"))
-		print(i)
+		#print(i)
 
 	pass
 
@@ -134,8 +134,8 @@ func _rotate_sprite():
 	
 	var start = -90
 	var rot_mod = 45 / 2
-	print(sprite_rot)
-	print(start - rot_mod)
+	#print(sprite_rot)
+	#print(start - rot_mod)
 	if sprite_rot > (-112.5) and sprite_rot < (-67.5) and sprite_rot < 0:
 		get_node("Sprite").set_texture(sprite_array[0])
 		set_rotation(-(45 + 22.5))

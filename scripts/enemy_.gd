@@ -79,6 +79,7 @@ func _on_Area2D_body_exited( body ):
 
 func _on_Timer_timeout():
 	if !track_player:
+		randomize()
 		randX = rand_range(-35,45)
 		randY = rand_range(-35,45)
 		move_random = true;

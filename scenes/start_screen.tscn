@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/start_screen.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/SewerLevelAudio.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/MegaCat_ST_TitleTheme.wav" type="AudioStream" id=4]
 
 [node name="start_screen" type="Control"]
 
@@ -46,6 +48,7 @@ margin_top = 328.0
 margin_right = 672.0
 margin_bottom = 392.0
 rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
@@ -57,5 +60,10 @@ group = null
 texture_normal = ExtResource( 2 )
 stretch_mode = 4
 _sections_unfolded = [ "Textures" ]
+
+[node name="AudioStreamPlayer" parent="." index="1" instance=ExtResource( 3 )]
+
+stream = ExtResource( 4 )
+volume_db = 1.0
 
 

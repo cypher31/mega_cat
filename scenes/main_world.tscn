@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/main_world.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -9,8 +9,11 @@
 [ext_resource path="res://scenes/power_up_repel_enemies.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/power_up_spawn_swarm.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/power_up_speed_boost.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/spawner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/SewerLevelAudio.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/powerUp Spawner.tscn" type="PackedScene" id=12]
 
-[node name="main_world" type="Node2D"]
+[node name="main_world" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -33,6 +36,7 @@ position = Vector2( 458.959, -220.391 )
 [node name="power_up_health" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( -240.207, -73.6663 )
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Visibility" ]
 
 [node name="power_up_rapid_fire" parent="." index="5" instance=ExtResource( 6 )]
 
@@ -49,5 +53,15 @@ position = Vector2( -258.295, 179.567 )
 [node name="power_up_speed_boost" parent="." index="8" instance=ExtResource( 9 )]
 
 position = Vector2( -81.9368, 101.185 )
+
+[node name="spawner" parent="." index="9" instance=ExtResource( 10 )]
+
+position = Vector2( -109.042, -179.547 )
+
+[node name="AudioStreamPlayer" parent="." index="10" instance=ExtResource( 11 )]
+
+[node name="powerUp Spawner" parent="." index="11" instance=ExtResource( 12 )]
+
+position = Vector2( -25.0812, 241.611 )
 
 
