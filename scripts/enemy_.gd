@@ -8,6 +8,8 @@ var track_player = false
 
 var move_speed = 10000
 
+signal hit_player
+
 func _ready():
 	set_process(true)
 	
@@ -30,7 +32,6 @@ func _process(delta):
 	
 	if(track_player):
 		var velocity = Vector2()
-		print(true)
 		velocity.x = -move_speed * normalized_movement.x
 		velocity.y = -move_speed * normalized_movement.y
 			
